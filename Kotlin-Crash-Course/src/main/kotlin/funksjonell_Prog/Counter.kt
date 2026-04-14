@@ -1,16 +1,12 @@
-import com.sun.rowset.internal.Row
-import org.w3c.dom.Text
-import org.w3c.dom.css.Counter
+package funksjonell_Prog
+
 import java.awt.BorderLayout
-import java.awt.Button
 import java.awt.FlowLayout
-import javax.lang.model.element.Modifier
 import javax.swing.JButton
 import javax.swing.JFrame
 import javax.swing.JLabel
 import javax.swing.JPanel
 import javax.swing.SwingConstants
-import javax.swing.text.StyleConstants.Alignment
 
 fun counter() {
     var count = 0

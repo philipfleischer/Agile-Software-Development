@@ -1,4 +1,7 @@
+package funksjonell_Prog
+
 import java.awt.BorderLayout
+import java.awt.Dimension
 import java.awt.Font
 import javax.swing.*
 import javax.swing.event.DocumentEvent
@@ -19,7 +22,7 @@ fun helloScreen() {
     helloLabel.alignmentX = JLabel.LEFT_ALIGNMENT
 
     val nameField = JTextField()
-    nameField.maximumSize = java.awt.Dimension(Int.MAX_VALUE, 30)
+    nameField.maximumSize = Dimension(Int.MAX_VALUE, 30)
     nameField.alignmentX = JTextField.LEFT_ALIGNMENT
 
     val nameLabel = JLabel("Name")

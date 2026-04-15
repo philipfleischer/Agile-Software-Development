@@ -1,4 +1,3 @@
-// This function takes a string and returns the reverse string
 fun funct1() {
     println("Enter a String:")
     val input = readln()

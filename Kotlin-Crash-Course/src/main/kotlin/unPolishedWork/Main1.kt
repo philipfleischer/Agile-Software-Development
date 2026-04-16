@@ -1,3 +1,5 @@
+package unPolishedWork
+
 fun func1() {
     val x: Int = 5
     val z: Float = 5F
@@ -212,21 +214,21 @@ fun func16() {
 }
 
 fun main() {
-//    func1()
-//    func2()
-//    func3()
-//    func4()
-//    func5()
-//    func6()
-//    func7()
-//    func8()
-//    func9()
-//    func10()
-//    func11()
-//    func12()
-//    func13()
-//    func14()
-//    func15()
+//    unPolishedWork.func1()
+//    unPolishedWork.func2()
+//    unPolishedWork.func3()
+//    unPolishedWork.func4()
+//    unPolishedWork.func5()
+//    unPolishedWork.func6()
+//    unPolishedWork.func7()
+//    unPolishedWork.func8()
+//    unPolishedWork.func9()
+//    unPolishedWork.func10()
+//    unPolishedWork.func11()
+//    unPolishedWork.func12()
+//    unPolishedWork.func13()
+//    unPolishedWork.func14()
+//    unPolishedWork.func15()
     func16()
 }
 

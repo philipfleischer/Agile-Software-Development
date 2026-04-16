@@ -1,3 +1,5 @@
+package unPolishedWork
+
 import kotlin.math.PI
 import kotlin.math.sqrt
 
@@ -75,7 +77,7 @@ fun functio3() {
     println("The circle's area is ${circle.area}")
     println("The circle's diameter is ${circle.diameter}")
     val rect1 = Rectangle30(width = 5f, height = 7f)
-    println("sumAreas: ${sumAreas(rect1, circle)}")
+    println("unPolishedWork.sumAreas: ${sumAreas(rect1, circle)}")
 
     println("rect1.counter = ${rect1.counter}")
     rect1.inc()
@@ -91,8 +93,8 @@ fun functio3() {
 
 
 fun main() {
-//    functio1()
-//    functio2()
+//    unPolishedWork.functio1()
+//    unPolishedWork.functio2()
     functio3()
 }
 

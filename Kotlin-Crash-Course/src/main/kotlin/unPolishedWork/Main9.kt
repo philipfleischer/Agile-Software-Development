@@ -1,3 +1,5 @@
+package unPolishedWork
+
 fun main() {
     val favoriteNumbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     val helloWorld = "Hello World!"
@@ -33,7 +35,7 @@ fun main() {
 }
 
 fun makeNetworkCall(): Result<Int, String> {
-    //return Result.Success()
+    //return unPolishedWork.Result.Success()
     return Result.Failure("Something went wrong")
 }
 

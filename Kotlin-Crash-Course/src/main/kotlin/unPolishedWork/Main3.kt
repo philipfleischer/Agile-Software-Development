@@ -1,3 +1,7 @@
+package unPolishedWork
+
+import kotlin.text.iterator
+
 fun funct1() {
     println("Enter a String:")
     val input = readln()
@@ -106,8 +110,8 @@ fun funct3() {
 }
 
 fun main() {
-//    funct1()
-//    funct2()
+//    unPolishedWork.funct1()
+//    unPolishedWork.funct2()
     funct3()
 }
 

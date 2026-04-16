@@ -1,3 +1,5 @@
+package unPolishedWork
+
 import kotlin.math.PI
 import kotlin.math.sqrt
 
@@ -58,8 +60,8 @@ sealed interface Shapes2 {
 fun printShapes(vararg shapes: Shapes) {
     for (shape in shapes) {
         when(shape) {
-            is Circles -> println("This is a Circle SHAPE!")
-            is Rectangles3 -> println("This is a Rectangle SHAPE!")
+            is Circles -> println("This is a unPolishedWork.Circle SHAPE!")
+            is Rectangles3 -> println("This is a unPolishedWork.Rectangle SHAPE!")
         }
     }
 }
@@ -67,9 +69,9 @@ fun printShapes(vararg shapes: Shapes) {
 fun printShapes2(vararg shapes: Shapes) {
     for (shape in shapes) {
         val output = when(shape) {
-            is Circles -> "This is a Circle SHAPE!"
-            is Rectangles3 -> "This is a Rectangle SHAPE!"
-            else -> "This is not a Circle or Rectangle SHAPE!"
+            is Circles -> "This is a unPolishedWork.Circle SHAPE!"
+            is Rectangles3 -> "This is a unPolishedWork.Rectangle SHAPE!"
+            else -> "This is not a unPolishedWork.Circle or unPolishedWork.Rectangle SHAPE!"
         }
         println(output)
     }
@@ -79,8 +81,8 @@ fun printShapes2(vararg shapes: Shapes) {
 fun printShapes3(vararg shapes: Shapes2) {
     for (shape in shapes) {
         val output = when(shape) {
-            is Circles -> "This is a Circle SHAPE!"
-            is Rectangles3 -> "This is a Rectangle SHAPE!"
+            is Circles -> "This is a unPolishedWork.Circle SHAPE!"
+            is Rectangles3 -> "This is a unPolishedWork.Rectangle SHAPE!"
         }
         println(output)
     }
@@ -98,7 +100,7 @@ fun fu3() {
     println("The circle's area is ${circle.area}")
     println("The circle's diameter is ${circle.diameter}")
     val rect1 = Rectangles3(width = 5f, height = 7f)
-    println("sumAreaes: ${sumAreaes(rect1, circle)}")
+    println("unPolishedWork.sumAreaes: ${sumAreaes(rect1, circle)}")
 
     println("PrinShapes1;: ")
     printShapes(rect1, circle)
@@ -110,8 +112,8 @@ fun fu3() {
 
 
 fun main() {
-//    fu1()
-//    fu2()
+//    unPolishedWork.fu1()
+//    unPolishedWork.fu2()
     fu3()
 }
 

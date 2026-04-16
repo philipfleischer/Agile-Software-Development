@@ -1,3 +1,7 @@
+package unPolishedWork
+
+import kotlin.text.iterator
+
 fun funnc1() {
     println("Write number:")
     val input = readln()
@@ -136,14 +140,14 @@ fun funnc9() {
 }
 
 fun main() {
-//    funnc1()
-//    funnc2()
-//    funnc3()
-//    funnc4()
-//    funnc5()
-//    funnc6()
-//    funnc7()
-//    funnc8()
+//    unPolishedWork.funnc1()
+//    unPolishedWork.funnc2()
+//    unPolishedWork.funnc3()
+//    unPolishedWork.funnc4()
+//    unPolishedWork.funnc5()
+//    unPolishedWork.funnc6()
+//    unPolishedWork.funnc7()
+//    unPolishedWork.funnc8()
     funnc9()
 }
 

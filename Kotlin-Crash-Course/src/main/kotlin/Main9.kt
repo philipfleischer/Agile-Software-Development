@@ -1,0 +1,3 @@
+fun mains() {
+    //val favoriteNumbers
+}

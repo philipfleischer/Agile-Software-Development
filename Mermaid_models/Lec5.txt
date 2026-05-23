@@ -1,0 +1,10 @@
+Demo - Sekvensdiagram m/API
+Oppgave: Lag et sekvensdiagram som viser at en bruker interagerer med en app som hetner data fra API. Du skal modellere en alternativ flyt dersom API-et ikke responderer. Du kan anta at du har metoden fetchWeatherData() til disposisjon.
+
+Finn akutelle "roller":
+- Bruker (aktør)
+- App (system)
+- API (system)
+Annet:
+- En alternativ flyt
+- Metoden fetchWeatherData() skal brukes

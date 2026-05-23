@@ -1,0 +1,28 @@
+Demo - Aktivitetsdiagram - Pante flasker
+Oppgave: Lag et aktivitetsdiagram for en panteautomat basert på følgende tekstlige beskrivelse av et use case:
+Tekstlig beskrivelse for use caset "Pant av flasker"
+- Navn: Pante flasker
+- Aktør: Kunde
+- Prebetingelse: Panteautomat er klar til å ta imot pant.
+- Postbetingelse: Kunde får ut kvittering eller lodd i pantelotteriet.
+
+
+Finn aktiviteter:
+1. Identifiser de ulike aktivitetene som inngår i use caset "Pant av flasker".
+- Sett inn panteobjekt
+- Ta ut panteobjekt
+- Legg til pantebeløp
+- Skriv ut lodd
+- Skriv ut kvittering
+
+Representeres som avrundede rektangler i aktivitetsdiagrammet.
+
+
+Finn avgjørelser og utfall
+2. Identifiser de ulike avgjørelsene og mulige utfall som inngår i use caset "Pant av flasker"
+- Godkjent?
+    - Er panteobjektet gyldig?
+- Fortsett?
+    - Ønsker brukeren å pante flere objekter?
+- Kvittering eller lodd?
+    - Ønsker brukeren kvittering eller lodd?

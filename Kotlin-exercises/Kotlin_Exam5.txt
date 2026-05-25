@@ -1,0 +1,255 @@
+Oppgave 1: Output med filter/map/fold
+
+Hva skrives ut?
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5, 6)
+    val result = numbers
+        .filter { it % 2 == 0 }
+        .map { it * 3 }
+        .fold(0) { acc, x -> acc + x }
+    println(result)
+}
+
+Svar:
+etter filter: 2,4,6
+etter map: 6,12,18
+etter fold som samler alt til én verdi med startverdi 0:
+acc = 0
+0 + 6 = 6
+6 + 12 = 18
+18 + 18 = 36
+output: 36
+
+⸻
+
+Oppgave 2: finn navn med høy popularitet
+
+Gitt:
+
+data class Name(val id: String, val name: String, val popularity: Int)
+val names = listOf(
+    Name("a1", "Philip", 32),
+    Name("a2", "Ole", 78),
+    Name("a3", "Sander", 45),
+    Name("a4", "Helmer", 98),
+    Name("a5", "Jon-Martin", 21)
+)
+
+Skriv en funksjon:
+
+fun popularNames(names: List<Name>): List<String> = names.filter { it.popularity >= 50 }.map { it.name }
+
+Den skal returnere navnene til alle med popularity >= 50.
+
+Forventet:
+
+["Ole", "Helmer"]
+
+⸻
+
+Oppgave 3: finn mest populært navn
+
+Bruk samme Name.
+
+Skriv funksjonen:
+
+fun mostPopularName(names: List<Name>): String = names.maxBy { it.popularity }?.name ?: ""
+
+Den skal returnere navnet med høyest popularity.
+
+Forventet:
+
+"Helmer"
+
+Du kan anta at listen ikke er tom.
+
+⸻
+
+Oppgave 4: enum + when
+
+Lag en enum:
+
+enum class RiskLevel {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+Skriv funksjonen:
+
+fun riskText(risk: RiskLevel): String =
+    when(risk) {
+        RiskLevel.LOW -> "Lav risiko"
+        RiskLevel.MEDIUM -> "Medium risiko"
+        RiskLevel.HIGH -> "Høy risiko"
+    }
+
+Den skal returnere:
+
+LOW -> "Lav risiko"
+MEDIUM -> "Middels risiko"
+HIGH -> "Høy risiko"
+
+⸻
+
+Oppgave 5: data class + enum
+
+Gitt:
+
+enum class Borek {
+    FETAOST,
+    SPINAT,
+    KYLLING,
+    SOPP
+}
+data class BorekInOven(val borek: Borek, val timeInOven: Int)
+
+Skriv funksjonen:
+
+fun requiredTime(borek: Borek): Int =
+    when(borek) {
+        Borek.FETAOST -> 4
+        Borek.SPINAT -> 5
+        Borek.KYLLING -> 8
+        Borek.SOPP -> 6
+    }
+
+Den skal returnere steketid:
+
+FETAOST  -> 4
+SPINAT   -> 5
+KYLLING  -> 8
+SOPP     -> 6
+
+⸻
+
+Oppgave 6: Børek klar til å tas ut
+
+Bruk samme Borek og BorekInOven.
+
+Skriv funksjonen:
+
+fun isReady(boreks: List<BorekInOven>): List<Borek> {
+    boreks.filter { it.timeInOven >= requiredTime(it.borek) }.map { it.borek }
+}
+
+Den skal returnere børek-typene som har stått lenge nok i ovnen.
+
+Eksempel:
+
+val list = listOf(
+    BorekInOven(Borek.FETAOST, 4),
+    BorekInOven(Borek.SPINAT, 3),
+    BorekInOven(Borek.KYLLING, 10),
+    BorekInOven(Borek.SOPP, 5)
+)
+
+Forventet:
+
+[Borek.FETAOST, Borek.KYLLING]
+
+Hint:
+
+filter { ... }.map { ... }
+
+⸻
+
+Oppgave 7: isSet uten toSet
+
+Du har allerede løst isSet med toSet(). Nå skal du løse den med løkker.
+
+fun isSet(numbers: List<Int>): Boolean {
+    val newSet = mutableSetOf<Int>()
+    numbers.forEach { newSet.add(it) }
+    return numbers.size == newSet.size
+}
+
+Den skal returnere false hvis samme tall finnes mer enn én gang.
+
+Eksempel:
+
+isSet(listOf(1, 2, 3))       // true
+isSet(listOf(1, 2, 2, 3))    // false
+
+Hint: Du kan bruke en mutableListOf<Int>() eller mutableSetOf<Int>() til å huske tall du har sett før.
+
+⸻
+
+Oppgave 8: finnSummer
+
+Dette er mer eksamensnært.
+
+Implementer:
+
+fun finnSummer(L: List<Int>, x: Int) {
+}
+
+Den skal skrive ut alle par y og z i listen der:
+
+y + z == x
+
+Eksempel:
+
+finnSummer(listOf(4, 2, 3, 0, 8, 10, 6), 10)
+
+Skal skrive ut:
+
+4 + 6
+2 + 8
+0 + 10
+
+Rekkefølgen er ikke så viktig, men hvert par skal bare komme én gang.
+
+Svar:
+// Denne klarte jeg ikke
+fun finnSummer(L: List<Int>, x: Int) {
+    var count = 1
+    L.forEachIndexed { idx, elem ->
+        if ((elem + L[idx + count]) == x) {
+            println("${L[idx]} + ${L[idx + 1]})
+            count++
+        }
+    }
+}
+
+⸻
+
+Oppgave 9: unit test
+
+Skriv én enkel JUnit-test for denne funksjonen:
+
+fun isAdult(age: Int): Boolean = age >= 18
+
+Testen skal sjekke at 18 gir true.
+
+Svar:
+
+@Test
+fun testIsAdult() {
+    // Arrange
+    val age = 20
+
+    // Act
+    val res = isAdult(age)
+
+    // Assert
+    assertTrue(res)
+}
+
+⸻
+
+Oppgave 10: liten output-oppgave
+
+Hva skrives ut?
+
+fun main() {
+    val words = listOf("a", "ab", "abc", "abcd")
+    val result = words
+        .filter { it.length % 2 == 0 }
+        .last()
+    println(result)
+}
+
+Svar:
+abcd

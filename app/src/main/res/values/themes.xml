@@ -2,4 +2,6 @@
 <resources>
 
     <style name="Theme.JetpackComposeTutorial" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.EnhetsTest" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

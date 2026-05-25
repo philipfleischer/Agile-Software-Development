@@ -1,0 +1,262 @@
+Oppgaver:
+
+Del A: Repetisjon av småfeil
+
+Oppgave 1: Int / when / return
+
+Fiks denne funksjonen:
+
+fun gradeToText(points: int): String {
+    when (points) {
+        0 -> "zero"
+        1 -> "one"
+        2 -> "two"
+        else -> "many"
+    }
+}
+
+Målet:
+
+gradeToText(1) // "one"
+gradeToText(5) // "many"
+
+Svar:
+fun gradeToText(points: Int): String =
+    when(points) {
+        0 -> "zero"
+        1 -> "one"
+        2 -> "two"
+        else -> "many"
+    }
+
+⸻
+
+Oppgave 2: enum class
+
+Fiks denne enum-en:
+
+enum RiskLevel {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+Svar:
+enum class RiskLevel {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+⸻
+
+Oppgave 3: String.length
+
+Fiks denne koden:
+
+val word = "IN2000"
+if (word.size > 3) {
+    println("Long word")
+}
+
+Svar:
+val word = "IN2000"
+if (word.length > 3) {
+    println("Long word")
+}
+
+⸻
+
+Oppgave 4: var / val
+
+Fiks denne koden:
+
+val count = 0
+count++
+println(count)
+
+Svar:
+var count = 0
+count++
+println(count)
+
+⸻
+
+Oppgave 5: >=
+
+Skriv en funksjon:
+
+fun isAdult(age: Int): Boolean {
+}
+
+Den skal returnere true hvis alder er 18 eller høyere.
+
+fun isAdult(age: Int): Boolean = age >= 18
+
+⸻
+
+Del B: Litt vanskeligere på det du klarte
+
+Oppgave 6: filter + map
+
+Gitt:
+
+val numbers = listOf(1, 2, 3, 4, 5, 6)
+
+Lag én linje som først beholder partall, og deretter ganger dem med 10.
+
+Forventet resultat:
+
+listOf(20, 40, 60)
+
+Svar:
+val result = numbers.filter { it % 2 == 0 }.map { it * 10 }
+println(result)
+
+⸻
+
+Oppgave 7: data class + filter
+
+Gitt:
+
+data class Product(val id: String, val name: String, val price: Int)
+val products = listOf(
+    Product("p1", "Soap", 29),
+    Product("p2", "Pizza", 129),
+    Product("p3", "Milk", 24),
+    Product("p4", "Jacket", 799)
+)
+
+Skriv kode som lager en liste med produkter som koster 100 kr eller mer.
+
+Forventet resultat: Pizza og Jacket.
+
+Svar:
+val prodHigh = mutableListOf<Product>()
+products.forEach {
+    if (it.price >= 100) {
+        prodHigh.add(it)
+    }
+}
+println(prodHigh)
+
+Bedre:
+val prodHigh = products.filter { it.price >= 100 }
+println(prodHigh)
+
+⸻
+
+Oppgave 8: data class + map
+
+Bruk samme products-liste.
+
+Lag en liste som bare inneholder navnene på produktene.
+
+Forventet resultat:
+
+listOf("Soap", "Pizza", "Milk", "Jacket")
+
+Svar:
+val prodName = mutableListOf<String>()
+products.forEach {
+    prodName.add(it.name)
+}
+println(prodName)
+
+Bedre:
+val prodName = products.map { it.name }
+println(prodName)
+
+⸻
+
+Oppgave 9: count
+
+Bruk samme products-liste.
+
+Tell hvor mange produkter som koster under 100 kr.
+
+Forventet svar:
+
+2
+
+Svar:
+var count = 0
+products.forEach {
+    if (it.price < 100) {
+        count++
+    }
+}
+println(count)
+
+Bedre:
+val count = products.count { it.price < 100 }
+println(count)
+
+⸻
+
+Oppgave 10: find
+
+Bruk samme products-liste.
+
+Finn produktet med id "p2".
+
+Forventet resultat:
+
+Product("p2", "Pizza", 129)
+
+Svar:
+val found = products.find { it.id == "p2" }
+println(found)
+
+
+⸻
+
+Del C: Mini-eksamensoppgave
+
+Oppgave 11: isSet
+
+Implementer:
+
+fun isSet(numbers: List<Int>): Boolean {
+}
+
+Den skal returnere:
+
+isSet(listOf(1, 2, 3))       // true
+isSet(listOf(1, 2, 2, 3))    // false
+isSet(listOf())              // true
+
+Tips: Du kan løse den med toSet() eller med løkker.
+
+Svar:
+fun isSet(numbers: List<Int>): Boolean = numbers.size == numbers.toSet().size
+
+⸻
+
+Oppgave 12: Temperature
+
+Gitt:
+
+data class Temperature(val temp: Int, val time: String)
+
+Skriv funksjonen:
+
+fun highestTempHour(temperatures: List<Temperature>): String {
+}
+
+Den skal returnere tidspunktet med høyest temperatur.
+
+Eksempel:
+
+val temps = listOf(
+    Temperature(12, "08:00"),
+    Temperature(19, "12:00"),
+    Temperature(15, "18:00")
+)
+highestTempHour(temps) // "12:00"
+
+
+Svar:
+fun highestTempHour(temperatures: List<Temperature>): String =
+    temperatures.maxBy { it.temp }?.time ?: "--:--"
+
+⸻

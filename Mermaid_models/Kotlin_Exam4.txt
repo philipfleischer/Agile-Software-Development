@@ -1,0 +1,133 @@
+Oppgave 1: filter endrer ikke originalen
+
+Hva skrives ut?
+
+fun main() {
+    val names = listOf("Ole", "Ada", "Philip")
+    names.filter { it.length > 3 }
+    println(names)
+}
+
+Svar:
+[Ole, Ada, Philip]
+
+⸻
+
+Oppgave 2: lagre resultatet
+
+Endre koden slik at den faktisk printer:
+
+[Philip]
+
+fun main() {
+    val names = listOf("Ole", "Ada", "Philip")
+    names.filter { it.length > 3 }
+    println(names)
+}
+
+Svar:
+fun main() {
+    val names = listOf("Ole", "Ada", "Philip")
+    val res = names.filter { it.length > 3 }
+    println(res)
+}
+⸻
+
+Oppgave 3: filter + map
+
+Gitt:
+
+data class Movie(val title: String, val rating: Int)
+val movies = listOf(
+    Movie("A", 4),
+    Movie("B", 8),
+    Movie("C", 10),
+    Movie("D", 6)
+)
+
+Lag en liste med titlene til filmer som har rating 7 eller høyere.
+
+Forventet:
+
+["B", "C"]
+
+Svar:
+val res = movies.filter { it.rating >= 7 }.map { it.title }
+
+⸻
+
+Oppgave 4: find
+
+Bruk samme movies.
+
+Finn filmen med tittel "C".
+
+Forventet:
+
+Movie("C", 10)
+
+Svar:
+val res = movies.find { it.title == "C" }
+
+⸻
+
+Oppgave 5: maxBy
+
+Bruk samme movies.
+
+Finn filmen med høyest rating.
+
+Forventet:
+
+Movie("C", 10)
+
+Svar:
+val res = movies.maxBy { it.rating }
+
+⸻
+
+Oppgave 6: count
+
+Bruk samme movies.
+
+Tell hvor mange filmer som har rating lavere enn 7.
+
+Forventet:
+
+2
+
+Svar:
+val count = movies.count { it.rating < 7 }
+
+⸻
+
+Oppgave 7: mini-eksamen med Weather
+
+Gitt:
+
+data class Weather(val temp: Int, val rain: Double, val time: String)
+
+Skriv funksjonen:
+
+fun warmAndDryHours(weather: List<Weather>): List<String> =
+    weather
+        .filter { it.temp >= 20 && it.rain == 0.0 }
+        .map { it.time }
+
+Den skal returnere tidspunktene der:
+
+temp >= 20
+rain == 0.0
+
+Eksempel:
+
+val weather = listOf(
+    Weather(18, 0.0, "08:00"),
+    Weather(22, 0.0, "12:00"),
+    Weather(25, 1.5, "15:00"),
+    Weather(21, 0.0, "18:00")
+)
+
+Forventet:
+
+["12:00", "18:00"]

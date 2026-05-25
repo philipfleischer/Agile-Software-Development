@@ -1,0 +1,92 @@
+Oppgave 1: filter endrer ikke originalen
+
+Hva skrives ut?
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4)
+    numbers.filter { it > 2 }
+    println(numbers)
+}
+
+Svar:
+listOf(3, 4)
+
+⸻
+
+Oppgave 2: Riktig bruk av find
+
+Fiks koden:
+
+val names = listOf("Ole", "Ada", "Philip")
+val result = names.find(it == "Ada")
+println(result)
+
+Svar:
+val result = names.find { it == "Ada" }
+println(result)
+
+⸻
+
+Oppgave 3: maxBy
+
+Gitt:
+
+data class Student(val name: String, val points: Int)
+val students = listOf(
+    Student("Ole", 20),
+    Student("Ada", 35),
+    Student("Philip", 30)
+)
+
+Skriv én linje som finner studenten med flest poeng.
+
+Forventet:
+
+Student("Ada", 35)
+
+
+Svar:
+val result = students.maxBy { it.points }
+println(result)
+
+
+⸻
+
+Oppgave 4: map etter filter
+
+Bruk samme students.
+
+Lag en liste med navnene til studentene som har minst 30 poeng.
+
+Forventet:
+
+listOf("Ada", "Philip")
+
+Svar:
+val result = students.filter { it.points >= 30 }.map { it.name }
+println(result)
+
+⸻
+
+Oppgave 5: mini-eksamen
+
+Gitt:
+
+data class Weather(val temp: Int, val rain: Double, val time: String)
+
+Skriv funksjonen:
+
+fun rainyHours(weather: List<Weather>): List<String> {
+    weahter.filter { it.rain > 0.0 }.map { it.time }
+}
+
+Den skal returnere tidspunktene der rain > 0.0.
+
+Eksempel:
+
+val weather = listOf(
+    Weather(12, 0.0, "08:00"),
+    Weather(15, 2.5, "12:00"),
+    Weather(11, 1.0, "18:00")
+)
+rainyHours(weather) // listOf("12:00", "18:00")

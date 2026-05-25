@@ -1,0 +1,241 @@
+Oppgaver:
+Bra jobbet. Du har fått mye riktig. Her er rettingene kort:
+
+1) Riktig
+
+8
+
+⸻
+
+2) Nesten riktig
+
+Du skrev:
+
+fun maxOf(a: Int, b: int): Int = if (a>b) a else b
+
+Feilen er bare at Kotlin bruker Int, ikke int.
+
+Riktig:
+
+fun maxOf(a: Int, b: Int): Int = if (a > b) a else b
+
+⸻
+
+3) Nesten riktig
+
+Du mangler return, eller du må bruke =.
+
+Riktig variant 1:
+
+fun numberToText(x: Int): String {
+    return when (x) {
+        1 -> "one"
+        2 -> "two"
+        3 -> "three"
+        else -> "unknown"
+    }
+}
+
+Riktig variant 2:
+
+fun numberToText(x: Int): String =
+    when (x) {
+        1 -> "one"
+        2 -> "two"
+        3 -> "three"
+        else -> "unknown"
+    }
+
+Viktig mønster:
+
+when (...) {
+    ...
+}
+
+gir en verdi, men funksjonen må faktisk returnere den verdien.
+
+⸻
+
+4) Riktig
+
+val courses = listOf("IN1000", "IN2000", "IN2010")
+courses.forEach { println(it) }
+
+Bra.
+
+⸻
+
+5) Riktig
+
+val numbers = listOf(1, 2, 3, 4, 5, 6)
+val numPar = numbers.filter { it % 2 == 0 }
+println(numPar)
+
+Bra. filter = behold de som matcher betingelsen.
+
+⸻
+
+6) Riktig
+
+val numbers = listOf(1, 2, 3, 4)
+val numMap = numbers.map { it * 2 }
+println(numMap)
+
+Bra. map = gjør om hvert element.
+
+⸻
+
+7) Nesten riktig idé, men noen Kotlin-feil
+
+Du skrev:
+
+val count = 0
+names.forEach { name ->
+    if (name.size > 3) {
+        count++
+    }
+}
+
+Feilene:
+
+String bruker .length, ikke .size.
+
+count må være var hvis du skal øke den med ++.
+
+Riktig med løkke:
+
+val names = listOf("Ole", "Philip", "Ada", "Sander")
+var count = 0
+names.forEach { name ->
+    if (name.length > 3) {
+        count++
+    }
+}
+println(count)
+
+Men mer Kotlin-aktig:
+
+val count = names.count { it.length > 3 }
+println(count)
+
+⸻
+
+8) Riktig
+
+data class Rett(val id: String, val name: String, val price: Int)
+
+Helt fint. Kunne også kalt den Product, men koden er riktig.
+
+⸻
+
+9) Nesten riktig
+
+Du mangler class.
+
+Riktig:
+
+enum class Weather {
+    SUNNY,
+    RAINY,
+    CLOUDY,
+    SNOW
+}
+
+⸻
+
+10) Nesten riktig
+
+Oppgaven sa 20 eller høyere, altså >= 20.
+
+Du skrev:
+
+fun isWarm(temperature: Temperature): Boolean = temperature.temp > 20
+
+Da blir 20 grader false, men den skal være true.
+
+Riktig:
+
+fun isWarm(temperature: Temperature): Boolean = temperature.temp >= 20
+
+⸻
+
+Kort oppsummert
+
+Dette bør du merke deg:
+
+Int          // stor I, ikke int
+.length      // for String
+.size        // for List
+var          // hvis verdien skal endres
+val          // hvis verdien ikke skal endres
+return when  // hvis when brukes inni vanlig funksjonskropp
+enum class   // ikke bare enum
+>=           // betyr "større enn eller lik"
+
+Du er på riktig vei. Feilene her er akkurat typiske små syntaksfeil som forsvinner når du har skrevet litt mer Kotlin.
+
+
+
+Svar:
+
+1)
+8
+
+2)
+fun maxOf(a: Int, b: Int): Int = if (a>b) a else b
+
+3)
+fun numberToText(x: Int): String =
+    when(x) {
+        1 -> "one"
+        2 -> "two"
+        3 -> "three"
+        else -> "unknown"
+    }
+
+
+4)
+val courses = listOf("IN1000", "IN2000", "IN2010")
+courses.forEach { println(it) }
+
+5)
+val numbers = listOf(1,2,3,4,5,6)
+val numPar = numbers.filter { it % 2 == 0 }
+println(numPar)
+
+6)
+val numbers = listOf(1,2,3,4)
+val numMap = numbers.map { it * 2 }
+println(numMap)
+
+7)
+val names = listOf("Ole", "Philip", "Ada", "Sander")
+val count = names.count { it.length > 3 }
+println(count)
+
+8)
+data class Rett(val id: String, val name: String, val price: Int)
+
+9)
+enum class Weather {
+    SUNNY,
+    RAINY,
+    CLOUDY,
+    SNOW
+}
+
+10)
+data class Temperature(val temp: Int, val time: String)
+
+fun isWarm(temperature: Temperature): Boolean = temperature.temp >= 20
+
+
+
+
+
+
+
+
+
+
+.

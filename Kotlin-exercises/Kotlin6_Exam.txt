@@ -1,0 +1,104 @@
+Oppgave 1: fold
+
+Hva skrives ut?
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4)
+    val result = numbers.fold(1) { acc, x ->
+        acc * x
+    }
+    println(result)
+}
+
+Svar:
+start acc = 1
+1 * 1 = 1
+1 * 2 = 2
+2 * 3 = 6
+6 * 4 = 24
+
+⸻
+
+Oppgave 2: enum + when
+
+Gitt:
+
+enum class Grade {
+    A, B, C, D, E, F
+}
+
+Skriv funksjonen:
+
+fun passed(grade: Grade): Boolean =
+    when(grade) {
+        Grade.F -> false
+        else -> true
+    }
+
+fun passed(grade: Grade): Boolean = grade != Grade.F
+
+Den skal returnere false bare hvis karakteren er F, ellers true.
+
+⸻
+
+Oppgave 3: data class + maxBy
+
+Gitt:
+
+data class ExamResult(val student: String, val points: Int)
+
+Skriv funksjonen:
+
+fun bestStudent(results: List<ExamResult>): String = results.maxBy { it.points }.student
+
+Den skal returnere navnet til studenten med flest poeng.
+
+⸻
+
+Oppgave 4: filter + map + count
+
+Gitt:
+
+data class Product(val name: String, val price: Int, val inStock: Boolean)
+
+Skriv funksjonen:
+
+fun availableExpensiveProducts(products: List<Product>): List<String> =
+    products.filter { it.price >= 100 && it.inStock }.map { it.name }
+
+Den skal returnere navnene på produkter som både:
+
+price >= 100
+inStock == true
+
+⸻
+
+Oppgave 5: finnSummer på nytt
+
+Prøv å skrive finnSummer på nytt, men denne gangen bruk dobbel for-løkke:
+
+fun finnSummer(L: List<Int>, x: Int) {
+    for (i in L.indices) {
+        for (j in i + 1 until L.size) {
+
+            val y = L[i]
+            val z = L[j]
+            if (y+z == x) {
+                println("$y + $z")
+            }
+        }
+    }
+}
+
+fun finnSummer(L: List<Int>, x: Int) {
+    val seen = mutableSetOf<Int>()
+
+    for (y in L) {
+        var z = x-y
+        if (y + z == x) {
+            println("$y + $z")
+        }
+        seen.add(y)
+    }
+
+}

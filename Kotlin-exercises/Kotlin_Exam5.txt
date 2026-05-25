@@ -202,14 +202,30 @@ Skal skrive ut:
 Rekkefølgen er ikke så viktig, men hvert par skal bare komme én gang.
 
 Svar:
-// Denne klarte jeg ikke
+
 fun finnSummer(L: List<Int>, x: Int) {
-    var count = 1
-    L.forEachIndexed { idx, elem ->
-        if ((elem + L[idx + count]) == x) {
-            println("${L[idx]} + ${L[idx + 1]})
-            count++
+    for (i in L.indices) {
+        for (j in i + 1 until L.size) {
+            val y = L[i]
+            val z = L[j]
+
+            if (y + z == x) {
+                println("$y + $z")
+            }
         }
+    }
+}
+
+fun finnSummer(L: List<Int>, x: Int) {
+    val seen = mutableSetOf<Int>()
+
+    for (y in L) {
+        val z = x - y
+
+        if (z in seen) {
+            println("$z + $y")
+        }
+        seen.add(y)
     }
 }
 
@@ -228,7 +244,7 @@ Svar:
 @Test
 fun testIsAdult() {
     // Arrange
-    val age = 20
+    val age = 18
 
     // Act
     val res = isAdult(age)

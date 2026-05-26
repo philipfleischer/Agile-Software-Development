@@ -1,0 +1,290 @@
+for-loops
+
+val numbers = listOf<Int>(10, 20, 30)
+for (number in numbers) {
+    println(number)
+}
+Output: 10 20 30
+
+Oppgave 1
+Hva skrives ut?
+
+fun main() {
+    val names = listOf("Ole", "Ada", "Philip")
+    for (name in names) {
+        println(name)
+    }
+}
+
+Svar:
+Ole Ada Philip
+
+⸻
+
+Oppgave 2
+
+Skriv en for-løkke som printer alle tallene:
+val numbers = listOf(1, 2, 3, 4, 5)
+Forventet output:
+
+1 2 3 4 5
+
+Svar:
+for (num in numbers) {
+    print("$num ")
+}
+
+⸻
+
+Oppgave 3
+
+Skriv en for-løkke som printer bare partallene fra listen:
+val numbers = listOf(1, 2, 3, 4, 5, 6)
+Forventet output:
+2 4 6
+Hint:
+if (number % 2 == 0)
+
+for (n in numbers) {
+    if (n % 2 == 0) {
+        print("$num ")
+    }
+}
+
+⸻
+
+Del 2: For-løkke med indeks
+
+Når du skriver:
+for (i in numbers.indices) {
+    println(i)
+}
+
+så er i indeksen, altså plasseringen i listen.
+Eksempel:
+
+val numbers = listOf(10, 20, 30)
+for (i in numbers.indices) {
+    println(i)
+}
+
+Output:
+
+0
+1
+2
+
+Ikke 10, 20, 30.
+
+For å hente verdien bruker vi:
+
+numbers[i]
+
+
+Oppgave 4
+
+Hva skrives ut?
+fun main() {
+    val numbers = listOf(10, 20, 30)
+    for (i in numbers.indices) {
+        println(i)
+    }
+}
+
+Svar:
+0 1 2
+
+⸻
+
+Oppgave 5
+
+Hva skrives ut?
+fun main() {
+    val numbers = listOf(10, 20, 30)
+    for (i in numbers.indices) {
+        println(numbers[i])
+    }
+}
+
+Svar:
+10 20 30
+
+⸻
+
+Oppgave 6
+
+Skriv en løkke som printer både indeks og verdi:
+val names = listOf("Ole", "Ada", "Philip")
+Forventet output:
+0: Ole
+1: Ada
+2: Philip
+
+Hint:
+
+for (i in names.indices) {
+    println("$i: ${names[i]}")
+}
+
+Svar:
+for ((index, value) in list.withIndex()) {
+    print("$index : $value ")
+}
+
+⸻
+
+Del 3: withIndex
+
+Dette er ofte enklere å lese:
+
+for ((index, value) in list.withIndex()) {
+    println("$index: $value")
+}
+
+Da får du både indeks og verdi samtidig.
+
+Oppgave 7
+
+Hva skrives ut?
+
+fun main() {
+    val courses = listOf("IN1000", "IN2000", "IN2010")
+    for ((index, course) in courses.withIndex()) {
+        println("$index -> $course")
+    }
+}
+
+Svar:
+0 -> IN1000
+1 -> IN2000
+2 -> IN2010
+
+⸻
+
+Oppgave 8
+
+Skriv en løkke med withIndex() som printer:
+
+Student 0 is Ole
+Student 1 is Ada
+Student 2 is Philip
+
+Gitt:
+
+val students = listOf("Ole", "Ada", "Philip")
+
+for ((index, value) in students.withIndex()) {
+    println("Student $index is $value ")
+}
+
+⸻
+
+Del 4: Bygge opp en sum med løkke
+
+Dette ligner Python veldig.
+
+Python:
+
+sum = 0
+for x in numbers:
+    sum += x
+
+Kotlin:
+
+var sum = 0
+for (x in numbers) {
+    sum += x
+}
+
+Oppgave 9
+
+Hva skrives ut?
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4)
+    var sum = 0
+    for (number in numbers) {
+        sum += number
+    }
+    println(sum)
+}
+
+Svar:
+10
+
+⸻
+
+Oppgave 10
+
+Skriv en funksjon med løkke:
+
+fun sumNumbers(numbers: List<Int>): Int = numbers.sum()
+
+Den skal returnere summen av alle tallene.
+
+Eksempel:
+
+sumNumbers(listOf(1, 2, 3)) // 6
+
+⸻
+
+Del 5: Telle med løkke
+
+Oppgave 11
+
+Skriv en funksjon:
+
+fun countEven(numbers: List<Int>): Int = numbers.filter { it % 2 == 0 }.count()
+
+Den skal telle hvor mange partall listen har.
+
+Eksempel:
+
+countEven(listOf(1, 2, 3, 4, 5, 6)) // 3
+
+Hint:
+
+var count = 0
+for (number in numbers) {
+    if (number % 2 == 0) {
+        count++
+    }
+}
+return count
+
+⸻
+
+Del 6: Lage ny liste med løkke
+
+Dette tilsvarer filter, men med vanlig løkke.
+
+Oppgave 12
+
+Skriv funksjonen:
+
+fun onlyEven(numbers: List<Int>): List<Int> {
+    val newList = mutableListOf<Int>()
+    for (num in numbers) {
+        if (num % 2 == 0) {
+            newList.add(num)
+        }
+    }
+}
+
+Den skal returnere en ny liste med bare partall.
+
+Eksempel:
+
+onlyEven(listOf(1, 2, 3, 4, 5, 6)) // [2, 4, 6]
+
+Hint:
+
+val result = mutableListOf<Int>()
+for (number in numbers) {
+    if (...) {
+        result.add(number)
+    }
+}
+return result
+
+⸻

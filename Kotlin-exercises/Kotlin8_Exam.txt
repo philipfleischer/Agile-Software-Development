@@ -1,0 +1,183 @@
+fun main() {
+    val x = 4
+    val y = 6
+    println(x + y)
+}
+//OUT: 10
+
+Oppgave 2: Feilen er at count er val og ikke var
+
+fun isPositive(number: Int): Boolean = number > 0
+
+fun dayType(day: String): String =
+    when(day) {
+        "Saturday" -> "Weekend"
+        "Sunday" -> "Weekend"
+        else -> "Weekday"
+    }
+
+fun main() {
+    val name: String? = null
+    println(name?.length)
+}
+// OUT: null
+
+fun main() {
+    val name: String? = null
+    val result = name ?: "Unknown"
+    println(result)
+}
+// OUT: Unknown
+
+fun main() {
+    val numbers = listOf(1,2,3,4)
+    println(numbers.first())
+    println(numbers.last())
+}
+// 1
+// 4
+
+fun main() {
+    val numbers = listOf(1,2,3,4,5,6)
+    val result = numbers.filter { it % 2 == 0 }
+    println(result)
+}
+//OUT: [2, 4, 6]
+
+fun main() {
+    val numbers = listOf(1,2,3)
+    val result = numbers.map { it * 10 }
+    println(result)
+}
+// [10, 20, 30]
+
+fun main() {
+    val names = listOf("Ole", "Ada", "Philip", "Sander")
+    val result = names.count { it.length > 3 }
+    println(result)
+}
+// ["Philip", "Sander"]
+
+data class Product(val id: String, val name: String, val price: Int)
+
+enum class UiState {
+    LOADING,
+    ERROR,
+    SUCCESS
+}
+
+
+data class Product(val name: String, val price: Int)
+
+val product = listOf(
+    Product("Soap", 29),
+    Product("Pizza", 129),
+    Product("Jacket", 799)
+)
+
+val liste = product.filter { it.price >= 100 }
+
+val mapListe = product.map { it.name }
+
+
+val found = products.find { it.name == "Pizza" }
+
+
+fun main() {
+    val numbers = listOf(10, 20, 30)
+
+    for (number in numbers) {
+        println(number)
+    }
+}
+// 10
+// 20
+// 30
+
+fun main() {
+    val numbers = listOf(10, 20, 30)
+
+    for (i in numbers.indices) {
+        println(i)
+    }
+}
+// 0
+// 1
+// 2
+
+fun main() {
+    val numbers = listOf(10, 20, 30)
+
+    for (i in numbers.indices) {
+        println(numbers[i])
+    }
+}
+// 10
+// 20
+// 30
+
+fun main() {
+    val numbers = listOf(10, 20, 30)
+
+    for ((index, value) in numbers) {
+        println("$index -> $value")
+    }
+}
+// 0 -> 10
+// 1 -> 20
+// 2 -> 30
+
+
+fun sumNumbers(numbers: List<Int>): Int = numbers.sum()
+
+
+fun countEven(numbers: List<int>): Int = numbers.count { it % 2 == 0 }
+
+
+fun main() {
+    val numbers = listOf(1,2,3,4)
+
+    val result = numbers.fold(0) { acc, x ->
+    acc + x
+    }
+    println(result)
+}
+// 10
+
+fun main() {
+    val numbers = listOf(1,2,3,4)
+
+    val result = numbers.fold(1) { acc, x ->
+    acc * x
+    }
+    println(result)
+}
+// 24
+
+
+data class Student(val name: String, val points: Int)
+
+val students = listOf(
+    Student("Ole", 20),
+    Student("Ada", 45),
+    Student("Philip", 38),
+    Student("Sander", 50)
+)
+val liste = students.map { it.points >= 40 }
+
+val maxStudent = students.maxBy { it.points }
+val maxStud = students.max() // Går dette?
+
+
+fun bestStudent(students: List<Students>): String = students.maxBy { it.points }
+
+
+data class Weather(val temp: Int, val rain: Double, val time: String)
+
+fun rainyHours(weather: List<Weather>): List<String> = weather.filter { it.rain > 0.0 }.map { it.time }
+
+fun warmAndDryHours(weather: List<Weather>): List<String> = weather.filter { it.temp >= 20 && it.rain == 0.0 }
+
+enum class Grade {
+    A, B, C, D, E, F
+}

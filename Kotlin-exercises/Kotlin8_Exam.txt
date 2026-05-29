@@ -181,3 +181,43 @@ fun warmAndDryHours(weather: List<Weather>): List<String> = weather.filter { it.
 enum class Grade {
     A, B, C, D, E, F
 }
+
+
+enum class Levels {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+fun riskText(risk: RiskLevel): String =
+    when (risk) {
+        Levels.LOW -> "Lav"
+        Levels.MEDIUM -> "Middels"
+        Levels.HIGH -> "Høy"
+    }
+
+enum class Status {
+    LOADING,
+    SUCCESS,
+    ERROR
+}
+
+fun statusMessage(status: Status): String =
+    when (status) {
+        Status.LOADING = "..."
+        Status.SUCCESS = "Suksess!"
+        Status.ERROR = "Feil"
+    }
+
+
+enum class Borek {
+    FETAOST,
+    SPINAT,
+    KYLLING,
+    SOPP
+}
+
+fun isVegetarian(borek: Borek): Boolean = Borek.KYLLING != borek
+
+
+data class BorekInOven(val borek: Borek, val timeInOven: Int)
